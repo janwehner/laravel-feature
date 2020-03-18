@@ -4,6 +4,7 @@ namespace LaravelFeature\Service;
 
 use Illuminate\Config\Repository;
 use LaravelFeature\Domain\FeatureManager;
+use Illuminate\Support\Str;
 
 class FeaturesViewScanner
 {
@@ -62,7 +63,7 @@ class FeaturesViewScanner
                 $bladeViews = array_merge($bladeViews, $this->getAllBladeViewsInPath($itemPath));
             }
 
-            if (is_file($itemPath) && ends_with($file, '.blade.php')) {
+            if (is_file($itemPath) && Str::endsWith($file, '.blade.php')) {
                 $bladeViews[] = $itemPath;
             }
         }
