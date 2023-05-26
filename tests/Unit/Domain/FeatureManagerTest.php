@@ -22,7 +22,7 @@ class FeatureManagerTest extends TestCase
         parent::setUp();
 
         $this->repositoryMock = $this->getMockBuilder(FeatureRepositoryInterface::class)
-            ->setMethods(['save', 'remove', 'findByName', 'enableFor', 'disableFor', 'isEnabledFor'])
+            ->onlyMethods(['save', 'remove', 'findByName', 'enableFor', 'disableFor', 'isEnabledFor'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -46,7 +46,7 @@ class FeatureManagerTest extends TestCase
     public function testAddThrowsExceptionOnError()
     {
         $this->expectException(FeatureException::class);
-        $this->getExpectedExceptionMessage('Unable to save the feature.');
+        $this->expectExceptionMessage('Unable to save the feature.');
         $this->repositoryMock->expects($this->once())
             ->method('save')
             ->willThrowException(new FeatureException('Unable to save the feature.'));
@@ -76,7 +76,7 @@ class FeatureManagerTest extends TestCase
     public function testRemoveThrowsExceptionOnError()
     {
         $this->expectException(FeatureException::class);
-        $this->getExpectedExceptionMessage('Unable to remove the feature.');
+        $this->expectExceptionMessage('Unable to remove the feature.');
 
         $feature = $this->getMockBuilder(Feature::class)
             ->disableOriginalConstructor()
@@ -118,7 +118,7 @@ class FeatureManagerTest extends TestCase
     public function testRenameFeatureThrowsError()
     {
         $this->expectException(FeatureException::class);
-        $this->getExpectedExceptionMessage('Unable to save the feature.');
+        $this->expectExceptionMessage('Unable to save the feature.');
 
         $feature = $this->getMockBuilder(Feature::class)
             ->disableOriginalConstructor()
