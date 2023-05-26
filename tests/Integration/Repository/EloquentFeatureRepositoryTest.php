@@ -72,7 +72,7 @@ class EloquentFeatureRepositoryTest extends TestCase
     public function testRemoveThrowsErrorOnFeatureNotFound()
     {
         $this->expectException(FeatureException::class);
-        $this->getExpectedExceptionMessage('Unable to find the feature.');
+        $this->expectExceptionMessage('Unable to find the feature.');
         $this->addTestFeature();
 
         $feature = Feature::fromNameAndStatus('unknown.feature', true);
@@ -252,7 +252,7 @@ class EloquentFeatureRepositoryTest extends TestCase
     public function testIsEnabledForThrowsExceptionOnFeatureNotFound()
     {
         $this->expectException(FeatureException::class);
-        $this->getExpectedExceptionMessage('Unable to find the feature.');
+        $this->expectExceptionMessage('Unable to find the feature.');
         $this->createTestEntityTable();
 
         $entity = $this->addTestEntity();
