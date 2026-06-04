@@ -4,6 +4,23 @@ All Notable changes to `laravel-feature` will be documented in this file.
 
 Updates follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## Unreleased
+
+### Added
+- Laravel 13 support while keeping Laravel 12 support.
+
+### Deprecated
+- Nothing
+
+### Fixed
+- Nothing
+
+### Removed
+- Dropped Laravel 10 and Laravel 11 support from Composer constraints.
+
+### Security
+- Nothing
+
 ## 0.1.0 - 2016-12-18
 
 ### Added
